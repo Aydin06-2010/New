@@ -28,20 +28,20 @@
 
     /* Fixed title bar */
     .console-title {
-      position: sticky; /* Keeps it at the top of the console */
-      top: 0;
-      height:70px;
-      background-color: rgb(44,52,68);
-      padding: 10px;
-      text-align: center;
-      align-items:center;
-      justify-content:center;
-      text-align: center;
-      font-weight: bold;
-      z-index: 10;
-      color: rgb(255,255,255);
-      font-size:25px; 
-      }
+  position: sticky; /* Keeps it at the top of the console */
+  top: 0;
+  height: 70px;
+  background-color: rgb(44, 52, 68);
+  display: flex; /* Enables Flexbox */
+  align-items: center; /* Vertically centers the text */
+  justify-content: center; /* Horizontally centers the text */
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  z-index: 10;
+  color: rgb(255, 255, 255);
+  font-size: 25px; 
+    }
     .console-button{
     margin: 5px 20px;
     padding:10px 25px;
