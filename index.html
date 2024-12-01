@@ -34,7 +34,7 @@
   background-color: rgb(44, 52, 68);
   display: flex; /* Enables Flexbox */
   align-items: center; /* Vertically centers the text */
-  justify-content: left; /* Horizontally centers the text */
+  justify-content: space-between; /* Horizontally centers the text */
   padding: 10px;
   text-align: left;
   font-weight: bold;
@@ -43,9 +43,9 @@
   font-size: 25px; 
     }
     .console-button{
-    position:sticky;
+   /* position:sticky;
     top: 5px;
-    left:15px;
+    left:15px;*/
     margin: 5px 20px;
     padding:10px 25px;
     color: white;
@@ -73,8 +73,10 @@
 </head>
 <body>
   <!-- Console Overlay -->
-  <div class="console-overlay">
-    <div class="console-title">Transparent Console - Fixed Title</div>
+  <div class="console-overlay"><button class="console-button">Close</button>
+    <div class="console-title">Transparent Console - Fixed Title
+      <button class="console-button">Close</button>
+    </div>
     <button class="console-button">Close</button>
     <div class="console-content">
       <div class="console-line">Line 1: Scroll the page behind this console.</div>
