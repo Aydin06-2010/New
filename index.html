@@ -83,6 +83,7 @@ background-color: white;
 </head>
 
 <body>
+
 <div class="console-overlay">
 <div class="console-title">Transparent Console - Fixed Title
 <button class="console-button">Close</button>
@@ -93,14 +94,22 @@ background-color: white;
 <div class="console-line">Line 2: This content is inside the semi-transparent console.</div>
 <div id=iframeContainer>
 <iframe id="WindowOutput" src="https://aydin06-2010.github.io/Dino/"></iframe>
+
 </div>
 </div>
 </div>
 <script>
+const WindowOutputiframe = document.getElementById("WindowOutput");
+const CurrentHeight = window.innerHeight;
+const baseScreenHeight = 568;
+const baseiframeHeight = 350;
+const Scale = CurrentHeight / baseScreenHeight;
+WindowOutputiframe.style.div = `${Scale * baseiframeHeight}`;
 window.onload= function(){
-const WindowOutputiframe= document.getElementById("WindowOutput");
+
 WindowOutputiframe.focus();
 }
+
 </script>
 </body>
 </html>
