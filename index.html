@@ -1,101 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,intial-scale=1">
-<title>Window with Transparency</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: monospace;
-      background: linear-gradient(135deg, #222, #444); /* Mock background content */
-      height: 200vh; /* Make the page scrollable */
-      color: white;
-    }
-    .console-overlay {
-      position: fixed;
-      width: 100%;
-      height: 50vh; /* Takes 50% of the screen height */
-      bottom: 0; /* Sticks to the bottom of the viewport */
-      background-color: rgba(43,43,43);
-      overflow-y: auto; /* Scrollable content inside */
-      overflow-x: hidden;
-    }
 
-    /* Fixed title bar */
-    .console-title {
-  position: sticky; /* Keeps it at the top of the console */
-  top: 0;
-  height: 70px;
-  background-color: rgb(44, 52, 68);
-  display: flex; /* Enables Flexbox */
-  align-items: center; /* Vertically centers the text */
-  justify-content: space-between; /* Horizontally centers the text */
-  padding: 10px;
-  text-align: left;
-  font-weight: bold;
-  z-index: 10;
-  color: rgb(255, 255, 255);
-  font-size: 25px; 
-    }
-    .console-button{
-   /* position:sticky;
-    top: 5px;
-    left:15px;*/
-    margin: 5px 20px;
-    padding:10px 25px;
-    color: white;
-    background-color: rgb(235,60,60);
-    font: "Space Grotesk",sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-    border: none;
-    border-radius: 15px;
-    outline:none;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Console Window with Transparency</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 
-    /* Console content area */
-    .console-content {
-      color: #0f0;
-    }
+<style>
 
-    /* Console text lines */
-    .console-line {
-      white-space: pre-wrap;
-      word-wrap: break-word;
-    }
+body {
+margin: 0;
+font-family: monospace;
+background: linear-gradient(135deg, #222, #444); /* Mock background content */
+height: 200vh; /* Make the page scrollable */
+color: white;
+}
+.console-overlay {
+position: fixed;
+width: 100%;
+height: 50vh; /* Takes 50% of the screen height */
+bottom: 0; /* Sticks to the bottom of the viewport */
+background-color: rgba(43,43,43);
+overflow-y: auto; /* Scrollable content inside */
+overflow-x: hidden;
+}
 
-    /* Transparent console overlay */  
-   #iframe{
-   border:none;
-   width:80%;
-   height:350px;
-   background-color: white;
-   }
-  </style>
+/* Fixed title bar */
+.console-title {
+position: sticky; /* Keeps it at the top of the console */
+top: 0;
+height: 70px;
+background-color: rgb(44, 52, 68);
+display: flex; /* Enables Flexbox */
+align-items: center; /* Vertically centers the text */
+justify-content: space-between; /* Horizontally centers the text */
+padding: 10px;
+text-align: left;
+font-weight: bold;
+z-index: 10;
+color: rgb(255, 255, 255);
+font-size: 25px; 
+}
+.console-button{
+margin: 5px 20px;
+padding:10px 25px;
+color: white;
+background-color: rgb(235,60,60);
+font: "Space Grotesk",sans-serif;
+font-size: 20px;
+font-weight: bold;
+border: none;
+border-radius: 15px;
+outline:none;
+}
+/* Console content area */
+.console-content {
+color: #0f0;
+}
+
+/* Console text lines */
+.console-line {
+white-space: pre-wrap;
+word-wrap: break-word;
+}
+
+#iframeContainer{
+display: flex;
+align-items:center;
+justify-content: center;
+}
+    
+#WindowOutput{
+border:none;
+width:80%;
+height:350px;
+background-color: white;
+}
+</style>
 </head>
+
 <body>
-  <div class="console-overlay">
-    <div class="console-title">Transparent Console - Fixed Title
-      <button class="console-button">Close</button>
-    </div>
-      <div class="console-content">
-      <div class="console-line">Line 1: Scroll the page behind this console.</div>
-      <div class="console-line">Line 2: This content is inside the semi-transparent console.</div>
-      <iframe id="iframe" src="https://aydin06-2010.github.io/Dino/"></iframe>
-  <!-- Console Overlay -->
-        <!-- Add more lines dynamically -->
-      </div>
-  </div>
-  <script>
-    window.onload= function(){
-    const iframe= document.getElementById("iframe");
-    iframe.focus();
-    }
-  </script>
+<div class="console-overlay">
+<div class="console-title">Transparent Console - Fixed Title
+<button class="console-button">Close</button>
+</div>
+
+<div class="console-content">
+<div class="console-line">Line 1: Scroll the page behind this console.</div>
+<div class="console-line">Line 2: This content is inside the semi-transparent console.</div>
+<div id=iframeContainer>
+<iframe id="WindowOutput" src="https://aydin06-2010.github.io/Dino/"></iframe>
+</div>
+</div>
+</div>
+<script>
+window.onload= function(){
+const WindowOutputiframe= document.getElementById("WindowOutput");
+WindowOutputiframe.focus();
+}
+</script>
 </body>
 </html>
