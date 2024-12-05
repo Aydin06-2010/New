@@ -171,8 +171,8 @@ window.onload= function(){
 WindowOutputiframe.focus();
 }
 
-OpenConsoleBtn.onclick = OpenConsole();
-CloseConsoleBtn.onclick = CloseConsole();
+OpenConsoleBtn.addEventListener("click", OpenConsole());
+CloseConsoleBtn.addEventListener("click", CloseConsole());
 
 function OpenConsole(){
 Console.style.display = "block";
