@@ -175,12 +175,13 @@ OpenConsoleBtn.onclick = OpenConsole;
 CloseConsoleBtn.onclick = CloseConsole;
 
 function OpenConsole(){
-ConsoleCounter = 2;
+ConsoleCounter += 1;
 if(ConsoleCounter===2){
 Console.style.display = "block";
 }
-else{
-Console.style.disllay = "none";
+else if(ConsoleCounter>2){
+CloseConsole();
+ConsoleCounter = 1; 
 }
 }
 
