@@ -9,9 +9,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-<!-- Prism.js Language Support (JavaScript as an example)
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>-->
     
 <style>
 
@@ -24,10 +21,13 @@ color: white;
 }
 
 #firstCode{
-width: 80% ;
+width: 100% ;
 max-height: 500px;
 overflow-y: scroll;
-background-color:black; 
+background-color:black;
+display: flex;
+align-items: center;
+justify-content: center; 
 }
     
 .console-overlay {
@@ -122,6 +122,8 @@ console.log("hi");
 </div>
 </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
 <script>
 const WindowOutputiframe = document.getElementById("WindowOutput");
 const CurrentHeight = window.innerHeight;
