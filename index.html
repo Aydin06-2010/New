@@ -135,6 +135,8 @@ a:hover {
 }
 </code></pre>
 </div>
+
+<button id=Run>Open</button>
     
 <div class="console-overlay">
 
@@ -153,18 +155,30 @@ a:hover {
 </div>
 <script>
 const WindowOutputiframe = document.getElementById("WindowOutput");
+const OpenConsoleBtn = document.getElementById("Run"); 
+const CloseConsoleBtn = document.querySelector("console-button"); 
 const Console = document.querySelector("console-overlay"); 
 const CurrentHeight = window.innerHeight;
+let ConsoleCounter = 1;
+    
 const baseScreenHeight = 568;
 const baseiframeHeight = 350;
 const Scale = CurrentHeight / baseScreenHeight;
 WindowOutputiframe.style.div = `${Scale * baseiframeHeight}`;
+
 window.onload= function(){
 WindowOutputiframe.focus();
 }
 
-function OpensConsole(){
+RunBtn.onclick = OpenConsole():
+ExitBtn.onclick = CloseConsole();
+
+function OpenConsole(){
 Console.style.display = "block";
+}
+
+function CloseConsole(){
+Console.style.display = "hidden";
 }
     
 </script>
