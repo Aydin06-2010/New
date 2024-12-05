@@ -157,7 +157,7 @@ a:hover {
 <script>
 const WindowOutputiframe = document.getElementById("WindowOutput");
 const OpenConsoleBtn = document.getElementById("Run"); 
-const CloseConsoleBtn = document.querySelector("console-button"); 
+const CloseConsoleBtn = document.getElementById("console-button"); 
 const Console = document.querySelector("console-overlay"); 
 const CurrentHeight = window.innerHeight;
 let ConsoleCounter = 1;
@@ -171,8 +171,8 @@ window.onload= function(){
 WindowOutputiframe.focus();
 }
 
-RunBtn.onclick = OpenConsole():
-ExitBtn.onclick = CloseConsole();
+OpenConsoleBtn.onclick = OpenConsole():
+CloseConsoleBtn.onclick = CloseConsole();
 
 function OpenConsole(){
 Console.style.display = "block";
