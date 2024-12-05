@@ -46,6 +46,7 @@ min-width: 800px;
     
 .console-overlay {
 position: fixed;
+display: hidden; 
 width: 100%;
 height: 50vh; /* Takes 50% of the screen height */
 bottom: 0; /* Sticks to the bottom of the viewport */
@@ -152,16 +153,20 @@ a:hover {
 </div>
 <script>
 const WindowOutputiframe = document.getElementById("WindowOutput");
+const Console = document.querySelector("console-overlay"); 
 const CurrentHeight = window.innerHeight;
 const baseScreenHeight = 568;
 const baseiframeHeight = 350;
 const Scale = CurrentHeight / baseScreenHeight;
 WindowOutputiframe.style.div = `${Scale * baseiframeHeight}`;
 window.onload= function(){
-
 WindowOutputiframe.focus();
 }
 
+function OpensConsole(){
+Console.style.display = "block";
+}
+    
 </script>
 </body>
 </html>
