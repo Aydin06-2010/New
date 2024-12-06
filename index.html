@@ -35,20 +35,17 @@ align-items: center;
 justify-content: center; 
 }
 
-#RunContainer {
+#RunImage {
+width: 30px; /* Adjust the size of the image */
+height: 30px; /* Same as width for uniformity */
+background-color: green; 
+}
+
+#Run {
 display: flex; /* Align items horizontally */
 align-items: center; /* Vertically centers the button and image */
 gap: 10px; /* Adds space between the button and the image */
 justify-content: space-between; 
-}
-
-#RunImage {
-width: 30px; /* Adjust the size of the image */
-height: 30px; /* Same as width for uniformity */
-cursor: pointer; /* Makes the image look clickable if needed */
-}
-
-#Run {
 padding: 10px 20px;
 font-size: 16px;
 font-weight: bold;
@@ -175,13 +172,12 @@ background-color: white;
 
 <body>
 
-<div class = TooDiv CodeEditorDesigns>
-<div id=RunBtnContainer>    
+<div class = TopDiv CodeEditorDesigns>  
 
+<button id=Run>
 <img src=RunBtn.png id=RunImage>
-<button id=Run>Open</button>
-
-</div>
+Run
+</button>
 </div>
 <div class = LeftDiv CodeEditorDesigns></div>
     
