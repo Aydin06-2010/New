@@ -31,6 +31,23 @@ align-items: center;
 justify-content: center; 
 }
 
+.CodeEditorDesigns{
+background-color: rgb(44, 52, 68);
+}
+
+.TopDiv{
+top: 0;
+width: 100%;
+height: 70px
+}
+
+.LeftDiv{
+left:0;
+top:0;
+height: 100%;
+width: 70px;
+}
+    
 #pre{
 min-width: 1000px;
 }
@@ -111,6 +128,11 @@ background-color: white;
 
 <body>
 
+<button id=Run>Open</button>
+
+<div class = LeftDiv CodeEditorDesigns></div>
+<div class = TopDiv CodeEditorDesigns></div>
+    
 <div id="firstCode">
 <pre id="pre"><code class="language-css">/* Example CSS code */
 body {
@@ -135,8 +157,6 @@ a:hover {
 }
 </code></pre>
 </div>
-
-<button id=Run>Open</button>
     
 <div class="console-overlay">
 
