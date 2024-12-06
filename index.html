@@ -36,27 +36,28 @@ justify-content: center;
 }
 
 #RunContainer {
-  display: flex; /* Align items horizontally */
-  align-items: center; /* Vertically centers the button and image */
-  gap: 10px; /* Adds space between the button and the image */
+display: flex; /* Align items horizontally */
+align-items: center; /* Vertically centers the button and image */
+gap: 10px; /* Adds space between the button and the image */
+justify-content: space-between; 
 }
 
 #RunImage {
-  width: 30px; /* Adjust the size of the image */
-  height: 30px; /* Same as width for uniformity */
-  cursor: pointer; /* Makes the image look clickable if needed */
+width: 30px; /* Adjust the size of the image */
+height: 30px; /* Same as width for uniformity */
+cursor: pointer; /* Makes the image look clickable if needed */
 }
 
 #Run {
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
-  background-color: rgb(235, 60, 60);
-  border: none;
-  border-radius: 15px;
-  outline: none;
-  cursor: pointer;
+padding: 10px 20px;
+font-size: 16px;
+font-weight: bold;
+color: white;
+background-color: rgb(235, 60, 60);
+border: none;
+border-radius: 15px;
+outline: none;
+cursor: pointer;
 }    
 
 /*#Run{
@@ -174,7 +175,7 @@ background-color: white;
 
 <body>
 
-<div class = LeftDiv CodeEditorDesigns>
+<div class = TooDiv CodeEditorDesigns>
 <div id=RunBtnContainer>    
 
 <img src=RunBtn.png id=RunImage>
@@ -182,7 +183,7 @@ background-color: white;
 
 </div>
 </div>
-<div class = TopDiv CodeEditorDesigns></div>
+<div class = LeftDiv CodeEditorDesigns></div>
     
 <div id="firstCode" class=Contents-CodeEditor>
 <pre id="pre"><code class="language-css">/* Example CSS code */
