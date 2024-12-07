@@ -285,13 +285,8 @@ BaseScreenHeight = PortraitScreenHeight;
 BaseScreenWidth = PortraitScreenWidth;
 } 
 
-let SCALE_HEIGHT = CurrentScreenHeight / BaseScreenHeight;
-let SCALE_WIDTH = CurrentScreenWidth / BaseScreenWidth;    
-   
-return [SCALE_HEIGHT , SCALE_WIDTH];
-}
-
-let [ScaleHeight , ScaleWidth] = CalculateScaleFactors();  
+let ScaleHeight = CurrentScreenHeight / BaseScreenHeight;
+let ScaleWidth = CurrentScreenWidth / BaseScreenWidth;    
 
 const styles = {
 ContentCodeEditor: {
@@ -354,6 +349,7 @@ if (element) {
 const style = styles[elementId];
 for (let property in style) {
 element.style[property] = `${style[property]}px`;
+}
 }
 }
 }
