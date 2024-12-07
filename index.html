@@ -268,8 +268,9 @@ const baseScreenHeight = 0;
 const baseScreenWidth = 0;
 let CurrentScreenHeight = window.innerHeight;
 let CurrentScreenWidth = window.innerWidth; 
+const ConsoleLog= document.querySelector(".console-title"); 
 
-console.log(`height: ${CurrentScreenHeight} ${CurrentScreenWidth}`);
+ConsoleLog.textContent= `height: ${CurrentScreenHeight} ${CurrentScreenWidth}`;
     
 const styles = {
 ContentCodeEditor: {
