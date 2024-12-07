@@ -221,7 +221,7 @@ a:hover {
 </div>
 </div>
 
-<script>
+<!--<script>
 const WindowOutputiframe = document.getElementById("WindowOutput");
 const OpenConsoleBtn = document.getElementById("Run"); 
 const CloseConsoleBtn = document.querySelector(".console-button"); 
@@ -368,6 +368,129 @@ function handleResize() {
 // Add event listeners
 window.addEventListener("resize", handleResize);
 window.addEventListener("orientationchange", handleResize);    
+</script>-->
+
+<script>
+const WindowOutputiframe = document.getElementById("WindowOutput");
+const OpenConsoleBtn = document.getElementById("Run"); 
+const CloseConsoleBtn = document.querySelector(".console-button"); 
+const Console = document.querySelector(".console-overlay"); 
+const CurrentHeight = window.innerHeight;
+let ConsoleCounter = 1;
+
+// Define base screen dimensions for both landscape and portrait
+const LandScapeScreenWidth = 1317;
+const LandScapeScreenHeight = 568;
+
+const PortraitScreenWidth = 823;
+const PortraitScreenHeight = 1062;
+
+function CalculateScaleFactors(){
+    // Get current screen dimensions
+    let CurrentScreenHeight = window.innerHeight;
+    let CurrentScreenWidth = window.innerWidth;
+
+    // Calculate the aspect ratio for current and base screens
+    let BaseScreenWidth, BaseScreenHeight;
+
+    if(CurrentScreenWidth > CurrentScreenHeight){ // Landscape orientation
+        BaseScreenWidth = LandScapeScreenWidth;
+        BaseScreenHeight = LandScapeScreenHeight;
+    } else { // Portrait orientation
+        BaseScreenWidth = PortraitScreenWidth;
+        BaseScreenHeight = PortraitScreenHeight;
+    }
+
+    // Calculate the aspect ratios
+    const currentAspectRatio = CurrentScreenWidth / CurrentScreenHeight;
+    const baseAspectRatio = BaseScreenWidth / BaseScreenHeight;
+
+    // Calculate scale factor based on the aspect ratio
+    const scaleFactor = currentAspectRatio / baseAspectRatio;
+
+    // Apply scaling to elements
+    const styles = {
+        ContentCodeEditor: {
+            marginTop: 85 * scaleFactor,
+            marginLeft: 50 * scaleFactor,
+        },
+        firstCode: {
+            maxHeight: 500 * scaleFactor,
+        },
+        RunImage: {
+            width: 15 * scaleFactor,
+        },
+        Run: {
+            paddingTop: 10 * scaleFactor,
+            paddingBottom: 10 * scaleFactor,
+            paddingLeft: 20 * scaleFactor,
+            paddingRight: 20 * scaleFactor,
+            fontSize: 20 * scaleFactor,
+            borderRadius: 15 * scaleFactor,
+        },
+        TopDiv: {
+            height: 70 * scaleFactor,
+            paddingLeft: 15 * scaleFactor,
+            paddingRight: 15 * scaleFactor,
+        },
+        LeftDiv: {
+            width: 70 * scaleFactor,
+            heightOffset: 70 * scaleFactor,
+            marginRight: 15 * scaleFactor,
+        },
+        pre: {
+            minWidth: 1000 * scaleFactor,
+        },
+        consoleTitle: {
+            height: 70 * scaleFactor,
+            padding: 10 * scaleFactor,
+            fontSize: 25 * scaleFactor,
+        },
+        consoleButton: {
+            marginTop: 5 * scaleFactor,
+            marginBottom: 5 * scaleFactor,
+            marginLeft: 20 * scaleFactor,
+            marginRight: 20 * scaleFactor,
+            paddingTop: 10 * scaleFactor,
+            paddingBottom: 10 * scaleFactor,
+            paddingLeft: 25 * scaleFactor,
+            paddingRight: 25 * scaleFactor,
+            fontSize: 20 * scaleFactor,
+            borderRadius: 15 * scaleFactor,
+        },
+        WindowOutput: {
+            height: 350 * scaleFactor,
+        },
+    };
+
+    // Apply the styles dynamically
+    for (let elementId in styles) {
+        const element = document.getElementById(elementId);
+        if (element) {
+            const style = styles[elementId];
+            for (let property in style) {
+                element.style[property] = `${style[property]}px`;
+            }
+        }
+    }
+}
+
+CalculateScaleFactors();
+let resizeTimeout; // Variable to track the debounce timer
+
+// Debounced resize/orientationchange handler
+function handleResize() {
+    clearTimeout(resizeTimeout); // Clear any previously set timeout
+    resizeTimeout = setTimeout(() => {
+        CalculateScaleFactors(); // Call the function after a delay
+    }, 200); // Delay of 200ms
+}
+
+// Add event listeners
+window.addEventListener("resize", handleResize);
+window.addEventListener("orientationchange", handleResize);
+
 </script>
+    
 </body>
 </html>
