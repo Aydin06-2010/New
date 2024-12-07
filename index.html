@@ -267,8 +267,8 @@ image.addEventListener("contextmenu", function(event) {
 const LandScapeScreenHeight = 568; 
 const LandScapeScreenWidth = 1317;
 
-const PortraitScreenHeight = 823;
-const PortraitScreenWidth = 1062;
+const PortraitScreenHeight = 1062;
+const PortraitScreenWidth = 823;
 
 let CurrentScreenHeight = window.innerHeight;
 let CurrentScreenWidth = window.innerWidth; 
@@ -276,7 +276,18 @@ let CurrentScreenWidth = window.innerWidth;
 let ScaleHeight = CurrentScreenHeight / BaseScreenHeight;
 let ScaleWidth = CurrentScreenWidth / BaseScreenWidth;
 
-function CheckRatio()
+function CheckRatio(Width,Height){
+const BaseScreenHeight, BaseScreenWidth; 
+if(Width>Height){ //landscape
+BaseScreenHeight = 568;
+BaseScreenWidth = 1317;
+}
+else if(Width<Height){
+BaseScreenHeight = 1062;
+BaseScreenWidth = 823;
+}
+return BaseScreenHeight, BaseScreenWidth; 
+}
     
 const styles = {
 ContentCodeEditor: {
