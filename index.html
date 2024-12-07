@@ -263,6 +263,67 @@ const image = document.getElementById("RunImage");
 image.addEventListener("contextmenu", function(event) {
     event.preventDefault(); // This will disable the right-click menu
 });
+
+const baseScreenHeight = 0;
+const baseScreenWidth = 0;
+let CurrentScreenHeight = window.innerHeight;
+let CurrentScreenWidth = window.innerWidth; 
+
+console.log(`height: ${CurrentScreenHeight} ${CurrentScreenWidth}`);
+    
+const styles = {
+ContentCodeEditor: {
+marginTop: 85 * ScaleHeight,
+marginLeft: 50 * ScaleWidth,
+},
+firstCode: {
+maxHeight: 500 * ScaleHeight,
+},
+RunImage: {
+width: 15 * ScaleWidth,
+},
+Run: {
+paddingTop: 10 * ScaleHeight,
+paddingBottom: 10 * ScaleHeight,
+paddingLeft: 20 * ScaleWidth,
+paddingRight: 20 * ScaleWidth,
+fontSize: 20 * ScaleWidth,
+borderRadius: 15 * ScaleWidth,
+},
+TopDiv: {
+height: 70 * ScaleHeight,
+paddingLeft: 15 * ScaleWidth,
+paddingRight: 15 * ScaleWidth,
+},
+LeftDiv: {
+width: 70 * ScaleWidth,
+heightOffset: 70 * ScaleHeight,
+marginRight: 15 * ScaleWidth,
+},
+pre: {
+minWidth: 1000 * ScaleWidth,
+},
+consoleTitle: {
+height: 70 * ScaleHeight,
+padding: 10 * ScaleHeight,
+fontSize: 25 * ScaleWidth,
+},
+consoleButton: {
+marginTop: 5 * ScaleHeight,
+marginBottom: 5 * ScaleHeight,
+marginLeft: 20 * ScaleWidth,
+marginRight: 20 * ScaleWidth,
+paddingTop: 10 * ScaleHeight,
+paddingBottom: 10 * ScaleHeight,
+paddingLeft: 25 * ScaleWidth,
+paddingRight: 25 * ScaleWidth,
+fontSize: 20 * ScaleWidth,
+borderRadius: 15 * ScaleWidth,
+},
+WindowOutput: {
+height: 350 * ScaleHeight,
+},
+};    
     
 </script>
 </body>
