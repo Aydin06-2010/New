@@ -257,13 +257,18 @@ function CloseConsole(){
 Console.style.display = "none";
 }
 
-// Find the image element by its ID
-const image = document.getElementById("RunImage");
-
-// Disable right-click (context menu) on the image
+// Disable right-click for all images on the page
+function disableRightClickForAllImages() {
+const images = document.querySelectorAll("img");
+images.forEach(image => {
 image.addEventListener("contextmenu", function(event) {
-    event.preventDefault(); // This will disable the right-click menu
+event.preventDefault();
 });
+});
+}
+
+// Call the function
+disableRightClickForAllImages();
 
     
 // Define base screen dimensions for both landscape and portrait
