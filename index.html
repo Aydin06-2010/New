@@ -355,8 +355,19 @@ element.style[property] = `${style[property]}px`;
 }
 
 CalculateScaleFactors();
-window.addEventListener("resize",CalculateScaleFactors); 
-    
+let resizeTimeout; // Variable to track the debounce timer
+
+// Debounced resize/orientationchange handler
+function handleResize() {
+  clearTimeout(resizeTimeout); // Clear any previously set timeout
+  resizeTimeout = setTimeout(() => {
+    CalculateScaleFactors(); // Call the function after a delay
+  }, 2000); // Delay of 200ms
+}
+
+// Add event listeners
+window.addEventListener("resize", handleResize);
+window.addEventListener("orientationchange", handleResize);    
 </script>
 </body>
 </html>
