@@ -274,7 +274,7 @@ function FindBaseScreenMeasurements(){
 let CurrentScreenHeight = window.innerHeight;
 let CurrentScreenWidth = window.innerWidth; 
 
-const BaseScreenHeight, BaseScreenWidth; 
+let BaseScreenHeight, BaseScreenWidth; 
 
 if(CurrentScreenWidth > CurrentScreenHeight){ //landscape
 BaseScreenHeight = LandScapeScreenHeight;
@@ -284,11 +284,13 @@ else if(CurrentScreenWidth < CurrentScreenHeight){
 BaseScreenHeight = PortraitScreenHeight;
 BaseScreenWidth = PortraitScreenWidth;
 } 
-return [BaseScreenHeight , BaseScreenWidth];
+
+let SCALE_HEIGHT = CurrentScreenHeight / BaseScreenHeight;
+let SCALE_WIDTH = CurrentScreenWidth / BaseScreenWidth;    
+   
+return [SCALE_HEIGHT , SCALE_WIDTH];
 }
 
-let ScaleHeight = CurrentScreenHeight / BaseScreenHeight;
-let ScaleWidth = CurrentScreenWidth / BaseScreenWidth;    
 const styles = {
 ContentCodeEditor: {
 marginTop: 85 * ScaleHeight,
