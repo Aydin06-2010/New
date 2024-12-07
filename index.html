@@ -70,6 +70,40 @@ border-radius: 15px;
 cursor: pointer;
 } 
 
+/* Sidebar container */
+.sidebar {
+position: fixed;
+top: 0;
+left: -40%; /* Initially hidden (off-screen) */
+width: 40%; /* Takes up 40% of the screen width */
+height: 100%; /* Full screen height */
+background-color: rgb(44, 52, 68);
+color: white;
+box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+z-index: 1000;
+overflow-y: auto; /* Make the sidebar scrollable if content overflows */
+transition: left 0.3s ease-in-out; /* Smooth slide animation */
+}
+
+/* Sidebar menu items */
+.sidebar-menu {
+list-style-type: none;
+margin: 0;
+padding: 20px;
+font-family: "Space Grotesk", sans-serif;
+font-size: 20px;
+font-weight: bold;
+}
+
+.sidebar-menu li {
+margin: 15px 0;
+cursor: pointer;
+}
+
+.sidebar-menu li:hover {
+color: #72d582; /* Highlight menu items on hover */
+}
+    
 /*#Run{
 margin-top: 85px;
 margin-left: 70px; 
@@ -177,6 +211,16 @@ background-color: white;
 <div class = TopDiv CodeEditorDesigns>  
 
 <button id=Menu class=UsefulBtns><img src=MenuBtn.png id=MenuImg class=Imgs></button>
+
+<!-- Sidebar -->
+<div id="Sidebar" class="sidebar">
+<ul class="sidebar-menu">
+<li>Index.html</li>
+<li>Style.css</li>
+<li>Script.js</li>
+<li>About</li>
+</ul>
+</div>
     
 <button id=Run>
 <img src=RunBtn.png id=RunImage>Run
@@ -269,6 +313,24 @@ event.preventDefault();
 
 // Call the function
 disableRightClickForAllImages();
+
+const menuBtn = document.getElementById("Menu");
+const sidebar = document.getElementById("Sidebar");
+
+let isSidebarOpen = false; // Track sidebar state
+
+menuBtn.onclick = function () {
+  if (isSidebarOpen) {
+    // Close sidebar
+    sidebar.style.left = "-40%";
+    isSidebarOpen = false;
+  } else {
+    // Open sidebar
+    sidebar.style.left = "0";
+    isSidebarOpen = true;
+  }
+};
+    
 
     
 // Define base screen dimensions for both landscape and portrait
