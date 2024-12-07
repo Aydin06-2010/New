@@ -270,25 +270,25 @@ const LandScapeScreenWidth = 1317;
 const PortraitScreenHeight = 1062;
 const PortraitScreenWidth = 823;
 
+function FindBaseScreenMeasurements(){
 let CurrentScreenHeight = window.innerHeight;
 let CurrentScreenWidth = window.innerWidth; 
 
-let ScaleHeight = CurrentScreenHeight / BaseScreenHeight;
-let ScaleWidth = CurrentScreenWidth / BaseScreenWidth;
-
-function CheckRatio(Width,Height){
 const BaseScreenHeight, BaseScreenWidth; 
-if(Width>Height){ //landscape
-BaseScreenHeight = 568;
-BaseScreenWidth = 1317;
+
+if(CurrentScreenWidth > CurrentScreenHeight){ //landscape
+BaseScreenHeight = LandScapeScreenHeight;
+BaseScreenWidth = LandScapeScreenWidth;
 }
-else if(Width<Height){
-BaseScreenHeight = 1062;
-BaseScreenWidth = 823;
+else if(CurrentScreenWidth < CurrentScreenHeight){
+BaseScreenHeight = PortraitScreenHeight;
+BaseScreenWidth = PortraitScreenWidth;
+} 
+return [BaseScreenHeight , BaseScreenWidth];
 }
-return BaseScreenHeight, BaseScreenWidth; 
-}
-    
+
+let ScaleHeight = CurrentScreenHeight / BaseScreenHeight;
+let ScaleWidth = CurrentScreenWidth / BaseScreenWidth;    
 const styles = {
 ContentCodeEditor: {
 marginTop: 85 * ScaleHeight,
