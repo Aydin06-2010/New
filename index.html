@@ -264,12 +264,19 @@ image.addEventListener("contextmenu", function(event) {
     event.preventDefault(); // This will disable the right-click menu
 });
 
-const BaseScreenHeight = 568; 
-const BaseScreenWidth = 1317;
+const LandScapeScreenHeight = 568; 
+const LandScapeScreenWidth = 1317;
+
+const PortraitScreenHeight = 823;
+const PortraitScreenWidth = 1062;
+
 let CurrentScreenHeight = window.innerHeight;
 let CurrentScreenWidth = window.innerWidth; 
+
 let ScaleHeight = CurrentScreenHeight / BaseScreenHeight;
 let ScaleWidth = CurrentScreenWidth / BaseScreenWidth;
+
+function CheckRatio()
     
 const styles = {
 ContentCodeEditor: {
