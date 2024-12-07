@@ -324,6 +324,17 @@ WindowOutput: {
 height: 350 * ScaleHeight,
 },
 }; 
+
+// Apply the styles dynamically
+for (let elementId in styles) {
+const element = document.getElementById(elementId);
+if (element) {
+const style = styles[elementId];
+for (let property in style) {
+element.style[property] = `${style[property]}px`;
+}
+}
+}
     
 </script>
 </body>
