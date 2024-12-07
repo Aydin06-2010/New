@@ -291,7 +291,7 @@ let SCALE_WIDTH = CurrentScreenWidth / BaseScreenWidth;
 return [SCALE_HEIGHT , SCALE_WIDTH];
 }
 
-const [ScaleHeight , ScaleWidth] = CalculateScaleFactor();  
+let [ScaleHeight , ScaleWidth] = CalculateScaleFactors();  
 
 const styles = {
 ContentCodeEditor: {
