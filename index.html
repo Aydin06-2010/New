@@ -270,7 +270,7 @@ const LandScapeScreenWidth = 1317;
 const PortraitScreenHeight = 1062;
 const PortraitScreenWidth = 823;
 
-function FindBaseScreenMeasurements(){
+function CalculateScaleFactors(){
 let CurrentScreenHeight = window.innerHeight;
 let CurrentScreenWidth = window.innerWidth; 
 
@@ -290,6 +290,8 @@ let SCALE_WIDTH = CurrentScreenWidth / BaseScreenWidth;
    
 return [SCALE_HEIGHT , SCALE_WIDTH];
 }
+
+const [ScaleHeight , ScaleWidth] = CalculateScaleFactor();  
 
 const styles = {
 ContentCodeEditor: {
