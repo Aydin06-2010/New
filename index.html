@@ -55,7 +55,6 @@ width: 17px;
 
 .Logos{
 width: 20px;
-padding-right: 15px;
 }
 
 #RunImage {
@@ -114,12 +113,21 @@ font-weight: bold;
 }
 
 .sidebar-menu li {
-margin: 35px 25px 15px 25px ;
+margin: 15px 25px;
 cursor: pointer;
+display: flex;
+align-items: center;
+justify-items: space-between;
+flex-direction: row;
+gap: 15px;
 }
 
 .sidebar-menu li:hover {
 color: #72d582; /* Highlight menu items on hover */
+}
+
+#Html{
+margin-top: 40px;
 }
     
 /*#Run{
@@ -250,9 +258,9 @@ background-color: white;
 <!-- Sidebar -->
 <div id="Sidebar" class="sidebar">
 <ul class="sidebar-menu">
-<li><img src=HTML5.png class=Logos>index.html</li>
-<li><img src=CSS3.png class=Logos>Style.css</li>
-<li><img src=JS.png class=Logos>Script.js</li>
+<li id=Html><img src=HTML5.png class=Logos>index.html</li>
+<li id=Css><img src=CSS3.png class=Logos>Style.css</li>
+<li id=Js><img src=JS.png class=Logos>Script.js</li>
 <li>About</li>
 </ul>
 </div>
