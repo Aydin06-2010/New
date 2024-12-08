@@ -464,19 +464,19 @@ CalculateScaleFactors(); // Call the function after a delay
 window.addEventListener("resize", handleResize);
 window.addEventListener("orientationchange", handleResize);*/
 
-// Variables to store current dimensions
+// Variables to store the current window size
 let currentScreenWidth = window.innerWidth;
 let currentScreenHeight = window.innerHeight;
 
+// Define the base dimensions for portrait and landscape mode
+const LandScapeScreenWidth = 1317;
+const LandScapeScreenHeight = 568;
+
+const PortraitScreenWidth = 823;
+const PortraitScreenHeight = 1062;
+
 function CalculateScaleFactors() {
-  // Define base screen dimensions for both landscape and portrait
-  const LandScapeScreenWidth = 1317;
-  const LandScapeScreenHeight = 568;
-
-  const PortraitScreenWidth = 823;
-  const PortraitScreenHeight = 1062;
-
-  // Determine base screen dimensions based on orientation
+  // Determine base screen dimensions based on current orientation
   let BaseScreenWidth, BaseScreenHeight;
 
   if (currentScreenWidth > currentScreenHeight) {
@@ -489,14 +489,14 @@ function CalculateScaleFactors() {
     BaseScreenHeight = PortraitScreenHeight;
   }
 
-  // Calculate aspect ratios
-  const currentAspectRatio = currentScreenWidth / currentScreenHeight;
-  const baseAspectRatio = BaseScreenWidth / BaseScreenHeight;
+  // Calculate scale factor as the ratio of current screen size to the base size
+  const scaleFactorX = currentScreenWidth / BaseScreenWidth;
+  const scaleFactorY = currentScreenHeight / BaseScreenHeight;
 
-  // Calculate scale factor
-  const scaleFactor = currentAspectRatio / baseAspectRatio;
+  // Use the smaller scale factor for uniform scaling
+  const scaleFactor = Math.min(scaleFactorX, scaleFactorY);
 
-  // Define styles with scaling applied
+  // Apply styles with the calculated scale factor
   const styles = {
     ContentCodeEditor: {
       marginTop: 85 * scaleFactor,
@@ -546,7 +546,7 @@ function CalculateScaleFactors() {
     },
   };
 
-  // Apply styles dynamically
+  // Apply the calculated styles to each element
   for (let elementId in styles) {
     const element = document.getElementById(elementId);
     if (element) {
@@ -558,19 +558,19 @@ function CalculateScaleFactors() {
   }
 }
 
-// Function to update screen dimensions and recalculate styles
+// Update screen dimensions on window resize
 function UpdateScreenDimensions() {
   currentScreenWidth = window.innerWidth;
   currentScreenHeight = window.innerHeight;
   CalculateScaleFactors();
 }
 
-// Run scaling logic once on page load
+// Run initial scaling logic when page loads
 CalculateScaleFactors();
 
 // Listen for window resize events
 window.addEventListener("resize", UpdateScreenDimensions);
-
+    
 </script>
     
 </body>
