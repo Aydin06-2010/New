@@ -458,11 +458,25 @@ CalculateScaleFactors();
 }
 
 // Run initial scaling logic when page loads
-CalculateScaleFactors();
+/*CalculateScaleFactors();
 
 // Listen for window resize events
-window.addEventListener("resize", UpdateScreenDimensions);
-    
+window.addEventListener("resize", UpdateScreenDimensions);*/
+
+let resizeTimeout; // Variable to track the debounce timer
+
+// Debounced resize/orientationchange handler
+function handleResize() {
+clearTimeout(resizeTimeout); // Clear any previously set timeout
+resizeTimeout = setTimeout(() => {
+CalculateScaleFactors(); // Call the function after a delay
+}, 200); // Delay of 200ms
+}
+
+// Add event listeners
+window.addEventListener("resize", handleResize);
+window.addEventListener("orientationchange", handleResize);
+  
 </script>
     
 </body>
