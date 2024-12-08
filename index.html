@@ -355,40 +355,40 @@ menuBtn.onclick = function () {
     isSidebarOpen = true;
   }
 };
-    
 
-    
-// Define base screen dimensions for both landscape and portrait
-/*const LandScapeScreenWidth = 1317;
+// Variables to store the current window size
+let currentScreenWidth = window.innerWidth;
+let currentScreenHeight = window.innerHeight;
+
+// Define the base dimensions for portrait and landscape mode
+const LandScapeScreenWidth = 1317;
 const LandScapeScreenHeight = 568;
 
 const PortraitScreenWidth = 823;
 const PortraitScreenHeight = 1062;
 
-let CurrentScreenHeight = window.innerHeight;
-let CurrentScreenWidth = window.innerWidth;
-
-function CalculateScaleFactors(){
-
-// Calculate the aspect ratio for current and base screens
+function CalculateScaleFactors() {
+  // Determine base screen dimensions based on current orientation
 let BaseScreenWidth, BaseScreenHeight;
 
-if(CurrentScreenWidth > CurrentScreenHeight){ // Landscape orientation
+if (currentScreenWidth > currentScreenHeight) {
+// Landscape orientation
 BaseScreenWidth = LandScapeScreenWidth;
 BaseScreenHeight = LandScapeScreenHeight;
-} else { // Portrait orientation
+} else {
+// Portrait orientation
 BaseScreenWidth = PortraitScreenWidth;
 BaseScreenHeight = PortraitScreenHeight;
 }
 
-// Calculate the aspect ratios
-const currentAspectRatio = CurrentScreenWidth / CurrentScreenHeight;
-const baseAspectRatio = BaseScreenWidth / BaseScreenHeight;
+// Calculate scale factor as the ratio of current screen size to the base size
+const scaleFactorX = currentScreenWidth / BaseScreenWidth;
+const scaleFactorY = currentScreenHeight / BaseScreenHeight;
 
-// Calculate scale factor based on the aspect ratio
-const scaleFactor = currentAspectRatio / baseAspectRatio;
+// Use the smaller scale factor for uniform scaling
+const scaleFactor = Math.min(scaleFactorX, scaleFactorY);
 
-// Apply scaling to elements
+// Apply styles with the calculated scale factor
 const styles = {
 ContentCodeEditor: {
 marginTop: 85 * scaleFactor,
@@ -437,7 +437,8 @@ WindowOutput: {
 height: 350 * scaleFactor,
 },
 };
-    // Apply the styles dynamically
+
+// Apply the calculated styles to each element
 for (let elementId in styles) {
 const element = document.getElementById(elementId);
 if (element) {
@@ -449,120 +450,11 @@ element.style[property] = `${style[property]}px`;
 }
 }
 
-CalculateScaleFactors();
-let resizeTimeout; // Variable to track the debounce timer
-
-// Debounced resize/orientationchange handler
-function handleResize() {
-clearTimeout(resizeTimeout); // Clear any previously set timeout
-resizeTimeout = setTimeout(() => {
-CalculateScaleFactors(); // Call the function after a delay
-}, 200); // Delay of 200ms
-}
-
-// Add event listeners
-window.addEventListener("resize", handleResize);
-window.addEventListener("orientationchange", handleResize);*/
-
-// Variables to store the current window size
-let currentScreenWidth = window.innerWidth;
-let currentScreenHeight = window.innerHeight;
-
-// Define the base dimensions for portrait and landscape mode
-const LandScapeScreenWidth = 1317;
-const LandScapeScreenHeight = 568;
-
-const PortraitScreenWidth = 823;
-const PortraitScreenHeight = 1062;
-
-function CalculateScaleFactors() {
-  // Determine base screen dimensions based on current orientation
-  let BaseScreenWidth, BaseScreenHeight;
-
-  if (currentScreenWidth > currentScreenHeight) {
-    // Landscape orientation
-    BaseScreenWidth = LandScapeScreenWidth;
-    BaseScreenHeight = LandScapeScreenHeight;
-  } else {
-    // Portrait orientation
-    BaseScreenWidth = PortraitScreenWidth;
-    BaseScreenHeight = PortraitScreenHeight;
-  }
-
-  // Calculate scale factor as the ratio of current screen size to the base size
-  const scaleFactorX = currentScreenWidth / BaseScreenWidth;
-  const scaleFactorY = currentScreenHeight / BaseScreenHeight;
-
-  // Use the smaller scale factor for uniform scaling
-  const scaleFactor = Math.min(scaleFactorX, scaleFactorY);
-
-  // Apply styles with the calculated scale factor
-  const styles = {
-    ContentCodeEditor: {
-      marginTop: 85 * scaleFactor,
-      marginLeft: 50 * scaleFactor,
-    },
-    firstCode: {
-      maxHeight: 500 * scaleFactor,
-    },
-    RunImage: {
-      width: 15 * scaleFactor,
-    },
-    Run: {
-      paddingTop: 10 * scaleFactor,
-      paddingBottom: 10 * scaleFactor,
-      paddingLeft: 20 * scaleFactor,
-      paddingRight: 20 * scaleFactor,
-      fontSize: 20 * scaleFactor,
-      borderRadius: 15 * scaleFactor,
-    },
-    TopDiv: {
-      height: 70 * scaleFactor,
-      paddingLeft: 15 * scaleFactor,
-      paddingRight: 15 * scaleFactor,
-    },
-    pre: {
-      minWidth: 1000 * scaleFactor,
-    },
-    consoleTitle: {
-      height: 70 * scaleFactor,
-      padding: 10 * scaleFactor,
-      fontSize: 25 * scaleFactor,
-    },
-    consoleButton: {
-      marginTop: 5 * scaleFactor,
-      marginBottom: 5 * scaleFactor,
-      marginLeft: 20 * scaleFactor,
-      marginRight: 20 * scaleFactor,
-      paddingTop: 10 * scaleFactor,
-      paddingBottom: 10 * scaleFactor,
-      paddingLeft: 25 * scaleFactor,
-      paddingRight: 25 * scaleFactor,
-      fontSize: 20 * scaleFactor,
-      borderRadius: 15 * scaleFactor,
-    },
-    WindowOutput: {
-      height: 350 * scaleFactor,
-    },
-  };
-
-  // Apply the calculated styles to each element
-  for (let elementId in styles) {
-    const element = document.getElementById(elementId);
-    if (element) {
-      const style = styles[elementId];
-      for (let property in style) {
-        element.style[property] = `${style[property]}px`;
-      }
-    }
-  }
-}
-
 // Update screen dimensions on window resize
 function UpdateScreenDimensions() {
-  currentScreenWidth = window.innerWidth;
-  currentScreenHeight = window.innerHeight;
-  CalculateScaleFactors();
+currentScreenWidth = window.innerWidth;
+currentScreenHeight = window.innerHeight;
+CalculateScaleFactors();
 }
 
 // Run initial scaling logic when page loads
