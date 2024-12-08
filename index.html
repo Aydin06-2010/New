@@ -356,7 +356,8 @@ menuBtn.onclick = function () {
   }
 };
     
-
+let CurrentScreenHeight = window.innerHeight;
+let CurrentScreenWidth = window.innerWidth;
     
 // Define base screen dimensions for both landscape and portrait
 const LandScapeScreenWidth = 1317;
@@ -367,8 +368,6 @@ const PortraitScreenHeight = 1062;
 
 function CalculateScaleFactors(){
 // Get current screen dimensions
-let CurrentScreenHeight = window.innerHeight;
-let CurrentScreenWidth = window.innerWidth;
 
 // Calculate the aspect ratio for current and base screens
 let BaseScreenWidth, BaseScreenHeight;
@@ -449,6 +448,12 @@ element.style[property] = `${style[property]}px`;
 }
 }
 
+function UpdateScreenDimensions() {
+currentScreenWidth = window.innerWidth;
+currentScreenHeight = window.innerHeight;
+CalculateScaleFactors();
+}   
+
 CalculateScaleFactors();
 let resizeTimeout; // Variable to track the debounce timer
 
@@ -456,10 +461,9 @@ let resizeTimeout; // Variable to track the debounce timer
 function handleResize() {
 clearTimeout(resizeTimeout); // Clear any previously set timeout
 resizeTimeout = setTimeout(() => {
-CalculateScaleFactors(); // Call the function after a delay
+UpdateScreenDimensions(); // Call the function after a delay
 }, 200); // Delay of 200ms
 }
-
 // Add event listeners
 window.addEventListener("resize", handleResize);
 window.addEventListener("orientationchange", handleResize);
