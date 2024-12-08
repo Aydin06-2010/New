@@ -370,19 +370,20 @@ disableRightClickForAllImages();
 
 const menuBtn = document.getElementById("Menu");
 const sidebar = document.getElementById("Sidebar");
+const glasspane = document.getElementById("glasspane"); 
 
 let isSidebarOpen = false; // Track sidebar state
 
 menuBtn.onclick = function () {
-  if (isSidebarOpen) {
-    // Close sidebar
-    sidebar.style.left = "-40%";
-    isSidebarOpen = false;
-  } else {
-    // Open sidebar
-    sidebar.style.left = "0";
-    isSidebarOpen = true;
-  }
+if (isSidebarOpen) {
+// Close sidebar
+sidebar.style.left = "-40%";
+isSidebarOpen = false;
+} else {
+// Open sidebar
+sidebar.style.left = "0";
+isSidebarOpen = true;
+}
 };
     
 let CurrentScreenHeight = window.innerHeight;
