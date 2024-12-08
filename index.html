@@ -97,7 +97,7 @@ height: 100vh; /* Full screen height */
 background-color: rgb(44, 52, 68);
 color: white;
 box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-z-index: 100;
+z-index: 1000;
 overflow-y: auto; /* Make the sidebar scrollable if content overflows */
 transition: left 0.3s ease-in-out; /* Smooth slide animation */
 }
@@ -152,7 +152,7 @@ margin-bottom: 15px;
 box-sizing: border-box;
 position: fixed;
 top: 0;
-z-index: 1000;
+z-index: 100;
 }
 
 /*.TopDiv {
@@ -252,6 +252,7 @@ width:  100vw;
 height: 100vh;
 background-color: rgba(0,0,0,0.8);
 display: none;
+z-index: 50; 
 }
     
 </style>
